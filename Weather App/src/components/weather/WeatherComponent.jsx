@@ -23,7 +23,6 @@ function WeatherComponent({ cityCoordinates }) {
     useEffect(() => {
         return () => {
             if (timer) {
-                console.log('clearing timer');
                 clearInterval(timer);
                 setTimer(null);
             }
@@ -42,14 +41,10 @@ function WeatherComponent({ cityCoordinates }) {
             const promise = fetch('GET', `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=en&units=metric&appid=${apiKey}`)
                 .then(
                     (resp) => {
-                        console.log('single resp');
-                        console.log(resp);
                         return { 'city': city, 'data': resp };
                     },
                     (err) => {
-                        console.log('single err');
-                        console.log(err);
-                        console.warn('Failed to retrieve weather information for [$s]', city);
+                        console.error('Failed to retrieve weather information for [$s]', city);
                         return Promise.reject();
                     }
                 );

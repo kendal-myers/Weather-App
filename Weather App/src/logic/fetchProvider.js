@@ -19,8 +19,6 @@ export class Builder {
             .accept(accept || 'json')
             .then(
                 (resp) => {
-                    console.log('fetch resp');
-                    console.log(resp);
                     if (resp.ok) {
                         if ((accept || 'json') !== 'json') {
                             return resp.text;
@@ -31,8 +29,6 @@ export class Builder {
                     return Promise.reject();
                 },
                 (err) => {
-                    console.log('fetch err');
-                    console.log(err);
                     console.error('Error while fetching resource: %d: %s', err.status, err.statusText || err.message || 'Unnown Error')
                     return Promise.reject();
                 }

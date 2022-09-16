@@ -1,0 +1,9 @@
+.MuiDataGrid-columnHeadersInner {
+    background-color: rgb(220,220,220);
+}
+.MuiDataGrid-footerContainer {
+    background-color: rgb(220,220,220);
+}
+.weather-row.odd {
+    background-color: rgb(245,245,245);
+}
